@@ -2,10 +2,13 @@ from aiogram import Bot, Dispatcher, F
 from aiogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from aiogram.filters import Command
 import asyncio
+from aiogram.client.session.aiohttp import AiohttpSession
 
 BOT_TOKEN = "8545421619:AAGtElqWl3VDvefdX3kq0DKdetCyXt6YY8Q"
+PROXY_URL = "http://proxy.server:3128"
+session = AiohttpSession(proxy=PROXY_URL)
 
-bot = Bot(token=BOT_TOKEN)
+bot = Bot(token=BOT_TOKEN, session=session)
 dp = Dispatcher()
 
 schedule = {
